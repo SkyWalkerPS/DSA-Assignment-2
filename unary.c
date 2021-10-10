@@ -1,45 +1,41 @@
 #include<stdio.h>
 #include<string.h>
-#include "help.h"
-int main()
-{
-    while(1)
-    {
-        int choice;
-        printf("Select a choice: \n 1.Addition \n 2.Multiplication \n 3.Exit \n");
-        printf("Enter a choice: ");
-        scanf("%d", &choice);
-        if(choice==1)
-        {
-            char unary1[500],unary2[500];
-            printf("Enter two unary no.s: ");
-            scanf("%s %s", unary1,unary2);
-            if(validunary(unary1)==1 && validunary(unary2)==1)
-            {
-                strcat(unary1,unary2);
-                printf("Sum is: %s\n",unary1);
-            }
-        }
-        else if(choice==2)
-        {
-            char unary1[500],unary2[500];
-            printf("Enter two unary no.s: ");
-            scanf("%s %s", unary1,unary2);
-            if(validunary(unary1)==1 && validunary(unary2)==1)
-            {
-                printf("Product is: ");
-                for(int i=0;i<strlen(unary2);i++)
-                {
-                    printf("%s",unary1);
-                }
-                printf("\n");
-            }
-        }
-        else
-        {
-            printf("Exiting..");
-            break;
-        }
+
+
+
+int main(){
+
+  while(1){
+    int select;
+    
+    printf("Select an option : \n1. Addition \n2. Multiplication \n3. Exit\n");
+    
+   
+    scanf("%d",&select);
+    if(select == 1){
+      char unary_1[100], unary_2[100],temp[100];
+      printf("Enter two unary numbers: ");
+      scanf("%s %s", unary_1, unary_2);
+      strcpy(temp,unary_2);
+      strcat(unary_2, unary_1);
+        printf("The sum of  %s and %s is : %s\n",unary_1, temp, unary_2);
     }
-    return 0;
+    else if(select == 2){
+      char unary_1[100], unary_2[100];
+      printf("Enter two unary numbers: ");
+      scanf("%s %s", unary_1, unary_2);
+       printf("The product of %s and %s  is: ",unary_1,unary_2);
+        for(int i=0; i<strlen(unary_1);i++){
+          printf("%s", unary_2);}
+        printf("\n");
+      
+
+    }
+    else {
+      printf("Exited.");
+      break;
+    }
+  }
+
+  return 0;
 }
